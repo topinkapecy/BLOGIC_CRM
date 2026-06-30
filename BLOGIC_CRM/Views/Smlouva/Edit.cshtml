@@ -1,0 +1,74 @@
+@model BLOGIC_CRM.Models.Smlouva
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Smlouva</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="EvidencniCislo" class="control-label"></label>
+                <input asp-for="EvidencniCislo" class="form-control" />
+                <span asp-validation-for="EvidencniCislo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KlientId" class="control-label"></label>
+                <input asp-for="KlientId" class="form-control" />
+                <span asp-validation-for="KlientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Klient" class="control-label"></label>
+                <input asp-for="Klient" class="form-control" />
+                <span asp-validation-for="Klient" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpravceSmlouvyId" class="control-label"></label>
+                <input asp-for="SpravceSmlouvyId" class="form-control" />
+                <span asp-validation-for="SpravceSmlouvyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpravceSmlouvy" class="control-label"></label>
+                <input asp-for="SpravceSmlouvy" class="form-control" />
+                <span asp-validation-for="SpravceSmlouvy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DatumUzavreni" class="control-label"></label>
+                <input asp-for="DatumUzavreni" class="form-control" />
+                <span asp-validation-for="DatumUzavreni" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DatumPlatnosti" class="control-label"></label>
+                <input asp-for="DatumPlatnosti" class="form-control" />
+                <span asp-validation-for="DatumPlatnosti" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DatumUkonceni" class="control-label"></label>
+                <input asp-for="DatumUkonceni" class="form-control" />
+                <span asp-validation-for="DatumUkonceni" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SmlouvaPoradce" class="control-label"></label>
+                <input asp-for="SmlouvaPoradce" class="form-control" />
+                <span asp-validation-for="SmlouvaPoradce" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,80 @@
+@model BLOGIC_CRM.Models.Smlouva
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Smlouva</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EvidencniCislo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EvidencniCislo)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KlientId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KlientId)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Klient)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Klient)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SpravceSmlouvyId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SpravceSmlouvyId)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SpravceSmlouvy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SpravceSmlouvy)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DatumUzavreni)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DatumUzavreni)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DatumPlatnosti)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DatumPlatnosti)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DatumUkonceni)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DatumUkonceni)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SmlouvaPoradce)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SmlouvaPoradce)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
