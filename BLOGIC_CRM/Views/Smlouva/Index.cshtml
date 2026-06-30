@@ -16,13 +16,7 @@
                 @Html.DisplayNameFor(model => model.EvidencniCislo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.KlientId)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Klient)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SpravceSmlouvyId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.SpravceSmlouvy)
@@ -36,9 +30,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.DatumUkonceni)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SmlouvaPoradce)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -49,16 +40,10 @@
                 @Html.DisplayFor(model => item.EvidencniCislo)
             </td>
             <td>
-                @Html.DisplayFor(model => item.KlientId)
+                @Html.DisplayFor(model => item.Klient.CeleJmeno)
             </td>
             <td>
-                @Html.DisplayFor(model => item.Klient)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.SpravceSmlouvyId)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.SpravceSmlouvy)
+                @Html.DisplayFor(model => item.SpravceSmlouvy.CeleJmeno)
             </td>
             <td>
                 @Html.DisplayFor(model => item.DatumUzavreni)
@@ -68,9 +53,6 @@
             </td>
             <td>
                 @Html.DisplayFor(model => item.DatumUkonceni)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.SmlouvaPoradce)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

@@ -1,82 +1,54 @@
 @model BLOGIC_CRM.Models.Klient
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Smazat klienta";
 }
 
-<h1>Delete</h1>
+<h1>Smazat klienta</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+@if (ViewBag.PocetSmluv > 0)
+{
+    <div class="alert alert-warning">
+        <strong>Pozor:</strong> Tento klient má jednu nebo více smluv.
+        Smazáním klienta budou nenávratně smazány i všechny jeho níže vypsané smlouvy:
+        <ul class="mb-0">
+            @foreach (var smlouva in Model.Smlouvy)
+            {
+                <li>@smlouva.EvidencniCislo</li>
+            }
+        </ul>
+    </div>
+}
+else
+{
+    <h3>Opravdu chcete tohoto klienta smazat?</h3>
+}
+
 <div>
-    <h4>BLOGIC_CRM.Models.Klient</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Jmeno)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Jmeno)
-        </dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Jmeno)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Jmeno)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Prijmeni)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Prijmeni)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Email)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Email)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Telefon)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Telefon)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.RodneCislo)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.RodneCislo)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Vek)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Vek)</dd>
     </dl>
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Prijmeni)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Prijmeni)
-        </dd>
-    </dl>
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-    </dl>
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefon)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Telefon)
-        </dd>
-    </dl>
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RodneCislo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RodneCislo)
-        </dd>
-    </dl>
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Vek)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Vek)
-        </dd>
-    </dl>
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Smlouvy)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Smlouvy)
-        </dd>
-    </dl>
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CeleJmeno)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CeleJmeno)
-        </dd>
-    </dl>
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="@(ViewBag.PocetSmluv > 0 ? "Smazat klienta i jeho smlouvy" : "Smazat")" class="btn btn-danger" /> |
+        <a asp-action="Index">Zpět na seznam</a>
     </form>
 </div>

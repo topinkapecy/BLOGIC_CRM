@@ -1,78 +1,35 @@
-﻿@model IEnumerable<BLOGIC_CRM.Models.Klient>
-
-@{
-    ViewData["Title"] = "Index";
+﻿@{
+    ViewData["Title"] = "Home";
 }
 
-<h1>Index</h1>
+<div class="text-center">
+    <h1 class="display-4">BLOGIC CRM</h1>
+    <p>Vyberte agendu, kterou chcete spravovat:</p>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Jmeno)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prijmeni)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefon)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RodneCislo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Vek)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Smlouvy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CeleJmeno)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(model => item.Jmeno)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.Prijmeni)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.Telefon)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.RodneCislo)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.Vek)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.Smlouvy)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.CeleJmeno)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="row mt-4">
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Smlouvy</h5>
+                <a asp-controller="Smlouva" asp-action="Index" class="btn btn-primary">Zobrazit seznam</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Klienti</h5>
+                <a asp-controller="Klient" asp-action="Index" class="btn btn-primary">Zobrazit seznam</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Poradci</h5>
+                <a asp-controller="Poradce" asp-action="Index" class="btn btn-primary">Zobrazit seznam</a>
+            </div>
+        </div>
+    </div>
+</div>
