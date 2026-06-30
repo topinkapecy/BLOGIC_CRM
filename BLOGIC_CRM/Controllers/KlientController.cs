@@ -4,7 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using BLOGIC_CRM.Models;
 using BLOGIC_CRM.Data;
 
-public class KlientController : Controller
+namespace BLOGIC_CRM.Controllers
+{
+    public class KlientController : Controller
 {
     private readonly ApplicationDbContext _context;
 
@@ -16,7 +18,8 @@ public class KlientController : Controller
     // GET: KLIENTS
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.Klienti.ToListAsync());
+        var data = await _context.Klienti.ToListAsync();
+        return View(data);
     }
 
     // GET: KLIENTS/Details/5
@@ -28,6 +31,7 @@ public class KlientController : Controller
         }
 
         var klient = await _context.Klienti
+            .Include(k => k.Smlouvy)
             .FirstOrDefaultAsync(m => m.Id == id);
         if (klient == null)
         {
@@ -76,7 +80,7 @@ public class KlientController : Controller
     // POST: KLIENTS/Edit/5
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int? id, [Bind("Id,Jmeno,Prijmeni,Email,Telefon,RodneCislo,Vek,Smlouvy,CeleJmeno")] Klient klient)
+    public async Task<IActionResult> Edit(int? id, [Bind("Id,Jmeno,Prijmeni,Email,Telefon,RodneCislo,Vek")] Klient klient)
     {
         if (id != klient.Id)
         {
@@ -143,4 +147,5 @@ public class KlientController : Controller
     {
         return _context.Klienti.Any(e => e.Id == id);
     }
+}
 }

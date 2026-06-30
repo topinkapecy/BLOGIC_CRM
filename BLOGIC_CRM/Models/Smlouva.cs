@@ -30,10 +30,9 @@ namespace BLOGIC_CRM.Models
         [Display(Name = "Datum platnosti")]
         public DateTime DatumPlatnosti { get; set; }
 
-        [Required(ErrorMessage = "Datum ukončení je povinné.")]
         [DataType(DataType.Date)]
         [Display(Name = "Datum ukončení")]
-        public DateTime DatumUkonceni { get; set; }
+        public DateTime? DatumUkonceni { get; set; }
 
         public ICollection<SmlouvaPoradce> SmlouvaPoradce { get; set; } = new List<SmlouvaPoradce>();
     }
