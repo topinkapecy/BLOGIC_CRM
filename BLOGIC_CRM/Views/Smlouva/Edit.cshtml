@@ -4,9 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Smlouva</h4>
+<h1>Upravit smlouvu</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -54,19 +52,14 @@
                 <span asp-validation-for="DatumUkonceni" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SmlouvaPoradce" class="control-label"></label>
-                <input asp-for="SmlouvaPoradce" class="form-control" />
-                <span asp-validation-for="SmlouvaPoradce" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Uložit" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Zpátky do seznamu smluv</a>
 </div>
 
 @section Scripts {

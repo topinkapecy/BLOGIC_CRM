@@ -15,9 +15,14 @@ namespace BLOGIC_CRM.Models
         public int KlientId { get; set; }
         public Klient Klient { get; set; } = null!;
 
+        [Required(ErrorMessage = "Instituce je povinná.")]
+        [Display(Name = "Instituce")]
+        public string Instituce { get; set; } = string.Empty;
+
         [Required(ErrorMessage = "Správce smlouvy je povinný.")]
         [Display(Name = "Správce smlouvy")]
         public int SpravceSmlouvyId { get; set; }
+        [Display(Name = "Správce smlouvy")]
         public Poradce SpravceSmlouvy { get; set; } = null!;
 
         [Required(ErrorMessage = "Datum uzavření je povinné.")]

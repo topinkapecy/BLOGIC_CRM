@@ -34,6 +34,7 @@ namespace BLOGIC_CRM.Models
         public int Vek { get; set; }
 
         public ICollection<SmlouvaPoradce> SmlouvaPoradce { get; set; } = new List<SmlouvaPoradce>();
+        [Display(Name = "Spravované smlouvy")]
         public ICollection<Smlouva> SpravovaneSmlouvy { get; set; } = new List<Smlouva>();
         [Display(Name = "Celé jméno")]
         public string CeleJmeno => $"{Jmeno} {Prijmeni}";
